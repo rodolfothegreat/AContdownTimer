@@ -1,0 +1,105 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#FFEEE8AA"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".TimerMainActivity">
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="03 min"
+        android:id="@+id/btn3Min"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="05 min"
+        android:id="@+id/btn5Min"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10 min"
+        android:id="@+id/btn10Min"
+        android:layout_alignTop="@+id/btn5Min"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="false" />
+
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/npHours"
+        android:layout_below="@+id/btn3Min"
+        android:layout_alignLeft="@+id/btn3Min"
+        android:layout_alignStart="@+id/btn3Min"
+        android:orientation="vertical" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/npMins"
+        android:layout_alignTop="@+id/npHours"
+        android:layout_alignLeft="@+id/btn5Min"
+        android:layout_alignStart="@+id/btn5Min" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/npSecs"
+        android:layout_alignTop="@+id/npMins"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:measureWithLargestChild="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/linearLayout"
+        android:layout_below="@+id/npHours"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="00:00:00"
+            android:id="@+id/tvTime"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textColor="#ff090909"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp" />
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Start"
+            android:onClick="startChronometer"/>
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Reset"
+            android:onClick="stopChronometer"/>
+
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
