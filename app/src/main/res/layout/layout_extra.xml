@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center|fill_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secs"
+            android:id="@+id/tvCaption"
+            android:layout_gravity="center_horizontal"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" + "
+            android:textStyle="bold" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="2"
+            android:id="@+id/edtNumber"
+            android:editable="true"
+            android:singleLine="true"
+            android:textSize="27dp"
+            android:textStyle="bold"
+            android:text="10"
+            android:maxLength="2"
+            android:enabled="true"
+            android:gravity="center_horizontal"
+            android:numeric="integer" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:id="@+id/btnDown"
+            android:text=" - "
+            android:textStyle="bold" />
+
+
+
+    </LinearLayout>
+
+
+</merge>
