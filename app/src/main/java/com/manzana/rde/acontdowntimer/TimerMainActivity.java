@@ -369,6 +369,8 @@ public class TimerMainActivity extends ActionBarActivity {
         this.npSecs.setValue(sharedPreferences.getInt("npSecs", 0));
         this.btnStart.setText(sharedPreferences.getString("btnStart", "Start"));
         this.btnReset.setText(sharedPreferences.getString("btnReset", "Reset")  );
+        if (!amRunning)
+            tvTime.setText(sharedPreferences.getString("tvTime","00:00:00" ) );
 
         if ((this.initTime + this.interval < SystemClock.elapsedRealtime() ) && (amRunning)) {
             amRunning = false;
@@ -390,7 +392,7 @@ public class TimerMainActivity extends ActionBarActivity {
     private void saveAll() {
         SharedPreferences sharedPreferences = this.getSharedPreferences("my_prefs", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit().clear();
-
+        editor.putString("tvTime", this.tvTime.getText().toString());
         editor.putLong("initTime", this.initTime);
         editor.putLong("interval", this.interval);
         editor.putBoolean("amRunning", this.amRunning);
