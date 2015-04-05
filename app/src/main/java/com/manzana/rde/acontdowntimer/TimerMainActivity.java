@@ -34,9 +34,9 @@ import android.widget.Toast;
 
 public class TimerMainActivity extends ActionBarActivity {
 
-    NumberPicker npHours;
-    NumberPicker npMins;
-    NumberPicker npSecs;
+    RdeSelectorView npHours;
+    RdeSelectorView npMins;
+    RdeSelectorView npSecs;
     Button btnStart;
     Button btnReset;
     Button btn3Min;
@@ -56,19 +56,19 @@ public class TimerMainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        npHours = (NumberPicker) findViewById(R.id.npHours);
-        npMins = (NumberPicker) findViewById(R.id.npMins);
-        npSecs = (NumberPicker) findViewById(R.id.npSecs);
-        npSecs.setMinValue(0);
-        npSecs.setMaxValue(59);
+        npHours = (RdeSelectorView) findViewById(R.id.npHours);
+        npHours.setCaption("Hour");
+        npMins = (RdeSelectorView) findViewById(R.id.npMins);
+        npMins.setCaption("Min");
+        npSecs = (RdeSelectorView) findViewById(R.id.npSecs);
+        npSecs.setCaption("Sec");
+        npSecs.setMax(59);
     //    npSecs.setWrapSelectorWheel(true);
 
-        npMins.setMinValue(0);
-        npMins.setMaxValue(59);
+        npMins.setMax(59);
         //   npMins.setWrapSelectorWheel(false);
 
-        npHours.setMinValue(0);
-        npHours.setMaxValue(59);
+        npHours.setMax(59);
         //    npHours.setWrapSelectorWheel(false);
 
 
@@ -369,6 +369,11 @@ public class TimerMainActivity extends ActionBarActivity {
         this.npSecs.setValue(sharedPreferences.getInt("npSecs", 0));
         this.btnStart.setText(sharedPreferences.getString("btnStart", "Start"));
         this.btnReset.setText(sharedPreferences.getString("btnReset", "Reset")  );
+        if (!amRunning)
+            tvTime.setText(sharedPreferences.getString("tvTime","00:00:00" ) );
+
+        if (!amRunning)
+            tvTime.setText(sharedPreferences.getString("tvTime","00:00:00" )  );
 
         if ((this.initTime + this.interval < SystemClock.elapsedRealtime() ) && (amRunning)) {
             amRunning = false;
@@ -390,7 +395,7 @@ public class TimerMainActivity extends ActionBarActivity {
     private void saveAll() {
         SharedPreferences sharedPreferences = this.getSharedPreferences("my_prefs", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit().clear();
-
+        editor.putString("tvTime", this.tvTime.getText().toString());
         editor.putLong("initTime", this.initTime);
         editor.putLong("interval", this.interval);
         editor.putBoolean("amRunning", this.amRunning);
@@ -400,6 +405,9 @@ public class TimerMainActivity extends ActionBarActivity {
         editor.putString("btnStart", this.btnStart.getText().toString());
         editor.putString("btnReset", this.btnReset.getText().toString() );
         editor.putString("chosenRingtone", this.chosenRingtone);
+
+        editor.putString("tvTime", this.tvTime.getText().toString());
+
         editor.commit();
 
     }
