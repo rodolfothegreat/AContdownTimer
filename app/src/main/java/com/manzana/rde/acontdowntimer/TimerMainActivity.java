@@ -370,6 +370,9 @@ public class TimerMainActivity extends ActionBarActivity {
         this.btnStart.setText(sharedPreferences.getString("btnStart", "Start"));
         this.btnReset.setText(sharedPreferences.getString("btnReset", "Reset")  );
 
+        if (!amRunning)
+            tvTime.setText(sharedPreferences.getString("tvTime","00:00:00" )  );
+
         if ((this.initTime + this.interval < SystemClock.elapsedRealtime() ) && (amRunning)) {
             amRunning = false;
             this.btnStart.setText("Start");
@@ -400,6 +403,9 @@ public class TimerMainActivity extends ActionBarActivity {
         editor.putString("btnStart", this.btnStart.getText().toString());
         editor.putString("btnReset", this.btnReset.getText().toString() );
         editor.putString("chosenRingtone", this.chosenRingtone);
+
+        editor.putString("tvTime", this.tvTime.getText().toString());
+
         editor.commit();
 
     }

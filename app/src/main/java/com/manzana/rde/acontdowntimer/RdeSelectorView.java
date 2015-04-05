@@ -158,10 +158,10 @@ public class RdeSelectorView extends LinearLayout {
                 int oldvalue = thevalue;
                 if (thevalue < 0)
                     thevalue = 0;
-                if(thevalue > mMax)
+                if (thevalue > mMax)
                     thevalue = mMax;
-                if(oldvalue != thevalue)
-                    edtNumber.setText(String.valueOf(thevalue) );
+                if (oldvalue != thevalue)
+                    edtNumber.setText(String.valueOf(thevalue));
             }
         });
 
