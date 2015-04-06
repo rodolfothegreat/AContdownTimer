@@ -1,6 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -35,33 +34,30 @@
         android:layout_alignParentEnd="false" />
 
 
-    <view
+    <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/npHours"
         android:layout_below="@+id/btn3Min"
         android:layout_alignLeft="@+id/btn3Min"
         android:layout_alignStart="@+id/btn3Min"
-        class="com.manzana.rde.acontdowntimer.RdeSelectorView"
         android:orientation="vertical" />
 
-    <view
+    <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/npMins"
         android:layout_alignTop="@+id/npHours"
         android:layout_alignLeft="@+id/btn5Min"
-        class="com.manzana.rde.acontdowntimer.RdeSelectorView"
         android:layout_alignStart="@+id/btn5Min" />
 
-    <view
+    <NumberPicker
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/npSecs"
         android:layout_alignTop="@+id/npMins"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        class="com.manzana.rde.acontdowntimer.RdeSelectorView"
         android:measureWithLargestChild="true" />
 
     <LinearLayout

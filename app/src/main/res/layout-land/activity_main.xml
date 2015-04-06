@@ -47,6 +47,43 @@
             </Button>
         </LinearLayout>
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center|fill_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Hours"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/textView1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mins"
+                android:layout_gravity="fill_horizontal|center_horizontal|bottom|right"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/textView2" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Secs"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/textView3"
+                android:textAlignment="center" />
+
+        </LinearLayout>
+
 
         <LinearLayout
             android:orientation="horizontal"
@@ -55,25 +92,22 @@
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:gravity="center|fill_horizontal">
-            <view
+            <NumberPicker
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                class="com.manzana.rde.acontdowntimer.RdeSelectorView"
                 android:id="@+id/npHours"
                 android:layout_weight="1"
                 android:orientation="vertical" />
 
-            <view
+            <NumberPicker
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                class="com.manzana.rde.acontdowntimer.RdeSelectorView"
                 android:layout_weight="1"
                 android:id="@+id/npMins" />
 
-            <view
+            <NumberPicker
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                class="com.manzana.rde.acontdowntimer.RdeSelectorView"
                 android:layout_weight="1"
                 android:id="@+id/npSecs" />
 

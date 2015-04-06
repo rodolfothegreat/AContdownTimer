@@ -34,9 +34,9 @@ import android.widget.Toast;
 
 public class TimerMainActivity extends ActionBarActivity {
 
-    RdeSelectorView npHours;
-    RdeSelectorView npMins;
-    RdeSelectorView npSecs;
+    NumberPicker npHours;
+    NumberPicker npMins;
+    NumberPicker npSecs;
     Button btnStart;
     Button btnReset;
     Button btn3Min;
@@ -56,19 +56,19 @@ public class TimerMainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        npHours = (RdeSelectorView) findViewById(R.id.npHours);
-        npHours.setCaption("Hour");
-        npMins = (RdeSelectorView) findViewById(R.id.npMins);
-        npMins.setCaption("Min");
-        npSecs = (RdeSelectorView) findViewById(R.id.npSecs);
-        npSecs.setCaption("Sec");
-        npSecs.setMax(59);
-    //    npSecs.setWrapSelectorWheel(true);
+        npHours = (NumberPicker) findViewById(R.id.npHours);
+        npMins = (NumberPicker) findViewById(R.id.npMins);
+        npSecs = (NumberPicker) findViewById(R.id.npSecs);
+        npSecs.setMinValue(0);
+        npSecs.setMaxValue(59);
+        //    npSecs.setWrapSelectorWheel(true);
 
-        npMins.setMax(59);
+        npMins.setMinValue(0);
+        npMins.setMaxValue(59);
         //   npMins.setWrapSelectorWheel(false);
 
-        npHours.setMax(59);
+        npHours.setMinValue(0);
+        npHours.setMaxValue(59);
         //    npHours.setWrapSelectorWheel(false);
 
 
@@ -119,7 +119,7 @@ public class TimerMainActivity extends ActionBarActivity {
         int secs = (int) (atime / 1000);
         int mins = secs / 60;
         int hours = mins / 60;
-       // hours = hours % 60;
+        // hours = hours % 60;
         mins = mins % 60;
         secs = secs % 60;
         int msecs = (int)atime % 1000;
@@ -168,7 +168,7 @@ public class TimerMainActivity extends ActionBarActivity {
 
 
             Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
-            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION);
+            intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_ALARM);
             intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, "Select Tone");
 
             if (chosenRingtone.isEmpty())
@@ -355,7 +355,7 @@ public class TimerMainActivity extends ActionBarActivity {
 
 
 
-        }
+    }
 
     private void getAll() {
         SharedPreferences sharedPreferences = this.getSharedPreferences("my_prefs", Activity.MODE_PRIVATE);
@@ -371,9 +371,6 @@ public class TimerMainActivity extends ActionBarActivity {
         this.btnReset.setText(sharedPreferences.getString("btnReset", "Reset")  );
         if (!amRunning)
             tvTime.setText(sharedPreferences.getString("tvTime","00:00:00" ) );
-
-        if (!amRunning)
-            tvTime.setText(sharedPreferences.getString("tvTime","00:00:00" )  );
 
         if ((this.initTime + this.interval < SystemClock.elapsedRealtime() ) && (amRunning)) {
             amRunning = false;
@@ -395,7 +392,7 @@ public class TimerMainActivity extends ActionBarActivity {
     private void saveAll() {
         SharedPreferences sharedPreferences = this.getSharedPreferences("my_prefs", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit().clear();
-        editor.putString("tvTime", this.tvTime.getText().toString());
+
         editor.putLong("initTime", this.initTime);
         editor.putLong("interval", this.interval);
         editor.putBoolean("amRunning", this.amRunning);
@@ -405,9 +402,7 @@ public class TimerMainActivity extends ActionBarActivity {
         editor.putString("btnStart", this.btnStart.getText().toString());
         editor.putString("btnReset", this.btnReset.getText().toString() );
         editor.putString("chosenRingtone", this.chosenRingtone);
-
         editor.putString("tvTime", this.tvTime.getText().toString());
-
         editor.commit();
 
     }
@@ -458,7 +453,7 @@ public class TimerMainActivity extends ActionBarActivity {
         float dpWidth = displayMetrics.widthPixels ;
         float awidth = dpWidth;
         if (awidth > dpHeight) {
-        //    awidth = dpHeight;
+            //    awidth = dpHeight;
             awidth = awidth / 2;
         }
         int desiredWidth =   (int) (afactor *  awidth);
