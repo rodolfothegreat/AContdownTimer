@@ -180,6 +180,13 @@ public class TimerMainActivity extends ActionBarActivity {
             return true;
         }
 
+        if(id == R.id.action_about ) {
+            AboutDialog about = new AboutDialog(this);
+            about.setTitle("About this app");
+            about.show();
+
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

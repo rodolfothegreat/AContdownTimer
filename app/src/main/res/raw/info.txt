@@ -1,0 +1,9 @@
+<h3>A Countdown Timer</h3>
+Version 1.0<br/>
+Copyright 2011<br/>
+
+<font color="#c5c5c5">
+www.mywebsite.com</font><br/>
+
+rodolfothegreat@hotmail.com
+
