@@ -20,16 +20,12 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.SystemClock;
-import android.support.v7.app.ActionBarActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.Button;
-import android.widget.Chronometer;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class TimerMainActivity extends ActionBarActivity {
@@ -71,7 +67,9 @@ public class TimerMainActivity extends ActionBarActivity {
         npHours.setMaxValue(59);
         //    npHours.setWrapSelectorWheel(false);
 
-
+        npHours.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        npMins.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+        npSecs.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
 
         btn3Min = (Button) findViewById(R.id.btn3Min);
         btn5Min = (Button) findViewById(R.id.btn5Min);
@@ -113,7 +111,13 @@ public class TimerMainActivity extends ActionBarActivity {
 
         tvTime = (TextView) findViewById(R.id.tvTime);
         correctWidth(tvTime, 0.81);
-    }
+
+        btn3Min.setHeight(btn3Min.getMeasuredWidth());
+        btn5Min.setHeight(btn3Min.getMeasuredWidth());
+        btn10Min.setHeight(btn3Min.getMeasuredWidth());
+
+
+     }
 
     private String convertTimetoStr(long atime) {
         int secs = (int) (atime / 1000);
@@ -354,6 +358,12 @@ public class TimerMainActivity extends ActionBarActivity {
     @Override
     public void onResume() {
         super.onResume();  // Always call the superclass method first
+
+        //btn3Min.measure(1,1);
+        //android.view.ViewGroup.LayoutParams params = btn3Min.getLayoutParams() ;
+        //params.height = btn3Min.getMeasuredWidth();
+        //btn3Min.setLayoutParams(params);
+
         receiver = new MyRequestReceiver();
         filter = new IntentFilter(TimerService.BROADCAST_ACTION);
         filter.addCategory(Intent.CATEGORY_DEFAULT);

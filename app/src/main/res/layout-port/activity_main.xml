@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:background="#FFEEE8AA"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -8,8 +8,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="3"
+        android:layout_height="wrap_content"
         android:id="@+id/lLeft"
         android:gravity="center_horizontal">
 
@@ -24,6 +23,7 @@
                 android:layout_height="wrap_content"
                 android:text="03 min"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:id="@+id/btn3Min">
 
             </Button>
@@ -124,7 +124,6 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="3"
         android:id="@+id/lRight">
 
         <TextView

@@ -39,7 +39,7 @@ public class AboutDialog extends Dialog{
             tv.setText(Html.fromHtml(readRawTextFile(R.raw.info)));
 
 
-            tv.setLinkTextColor(Color.WHITE);
+            tv.setLinkTextColor(Color.BLUE);
 
 
             Linkify.addLinks(tv, Linkify.ALL);
