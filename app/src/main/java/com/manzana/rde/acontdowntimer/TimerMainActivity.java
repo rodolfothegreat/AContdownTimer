@@ -4,7 +4,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -28,7 +28,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 
 
-public class TimerMainActivity extends ActionBarActivity {
+public class TimerMainActivity extends AppCompatActivity {
 
     NumberPicker npHours;
     NumberPicker npMins;
