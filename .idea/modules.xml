@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AContdownTimer.iml" filepath="$PROJECT_DIR$/AContdownTimer.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AContdownTimer.iml" filepath="$PROJECT_DIR$/AContdownTimer.iml" group="AContdownTimer" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="AContdownTimer/app" />
     </modules>
   </component>
 </project>
